@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #canvas {
+            border: 2px solid black; /* Add a 2px solid black border */
+          }
+    </style>
+    <title>Vector Representation Example</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="../commonJs/canvas.js"></script>
+    <script src="../commonJs/vec2d.js"></script>
+    <script src="../commonJs/slider.js"></script>
+    <script src="../commonJs/draw_vec.js"></script>
+    <script src="../commonJs/utils.js"></script>
+    <script src="js/appBounceFriction.js"></script>
+    <script>
+
+    var app = new AppBounceFriction("Friction and bouncing", 500, 350,25,50);
+    app.start();
+
+    function loop(deltaTime){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        app.update(deltaTime);
+        app.draw(ctx);
+        requestAnimationFrame(loop);
+    }
+
+    loop(0);
+
+    </script>
+</body>
+</html>
